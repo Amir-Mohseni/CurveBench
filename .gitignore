@@ -9,3 +9,5 @@ __pycache__/
 # exclude easy and hard folders
 easy/
 hard/
+
+TODO.txt
