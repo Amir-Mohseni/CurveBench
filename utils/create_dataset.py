@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to process images in a folder and create a HuggingFace dataset
+Script to process images in easy and hard folders and create a HuggingFace dataset
 with image, number of nodes, and tree structure.
 """
 
@@ -11,6 +11,8 @@ from PIL import Image
 from datasets import Dataset, DatasetDict
 from typing import List, Tuple, Dict
 import json
+import os
+from dotenv import load_dotenv
 
 
 def build_contour_tree(hierarchy):
@@ -174,13 +176,15 @@ def process_image(image_path: Path) -> Dict:
     }
 
 
-def create_dataset(image_folder: str, output_path: str = None):
+def process_folder(image_folder: str) -> Dataset:
     """
     Process all images in a folder and create a HuggingFace dataset.
     
     Args:
         image_folder: Path to folder containing images
-        output_path: Optional path to save the dataset
+        
+    Returns:
+        HuggingFace Dataset
     """
     folder_path = Path(image_folder)
     if not folder_path.exists():
@@ -227,24 +231,89 @@ def create_dataset(image_folder: str, output_path: str = None):
     print(f"\nDataset created with {len(dataset)} samples")
     print(f"Sample: num_nodes={data['num_nodes'][0]}, tree_edges={len(data['tree'][0])}")
     
-    # Save if output path provided
-    if output_path:
-        dataset.save_to_disk(output_path)
-        print(f"Dataset saved to: {output_path}")
-    
     return dataset
+
+
+def create_dataset(easy_folder: str, hard_folder: str, output_path: str = None, 
+                   repo_id: str = None, push_to_hub: bool = False):
+    """
+    Process images in easy and hard folders and create a HuggingFace dataset with splits.
+    
+    Args:
+        easy_folder: Path to folder containing easy images
+        hard_folder: Path to folder containing hard images
+        output_path: Optional path to save the dataset locally
+        repo_id: HuggingFace repository ID (e.g., "username/dataset-name")
+        push_to_hub: Whether to push the dataset to HuggingFace Hub
+    """
+    # Process easy folder
+    print("=" * 60)
+    print("Processing EASY folder...")
+    print("=" * 60)
+    easy_dataset = process_folder(easy_folder)
+    
+    # Process hard folder
+    print("\n" + "=" * 60)
+    print("Processing HARD folder...")
+    print("=" * 60)
+    hard_dataset = process_folder(hard_folder)
+    
+    # Create DatasetDict with splits
+    dataset_dict = DatasetDict({
+        "easy": easy_dataset,
+        "hard": hard_dataset
+    })
+    
+    print("\n" + "=" * 60)
+    print("Dataset Summary")
+    print("=" * 60)
+    print(f"Easy split: {len(easy_dataset)} samples")
+    print(f"Hard split: {len(hard_dataset)} samples")
+    print(f"Total: {len(easy_dataset) + len(hard_dataset)} samples")
+    
+    # Save locally if output path provided
+    if output_path:
+        dataset_dict.save_to_disk(output_path)
+        print(f"\nDataset saved to: {output_path}")
+    
+    # Push to HuggingFace Hub if requested
+    if push_to_hub:
+        if not repo_id:
+            raise ValueError("repo_id must be provided when push_to_hub=True")
+        
+        # Load HF_TOKEN from .env file
+        load_dotenv()
+        hf_token = os.getenv("HF_TOKEN")
+        
+        if not hf_token:
+            raise ValueError("HF_TOKEN not found in .env file. Please create a .env file with HF_TOKEN=your_token")
+        
+        print(f"\nPushing dataset to HuggingFace Hub: {repo_id}")
+        dataset_dict.push_to_hub(repo_id, token=hf_token)
+        print(f"Dataset successfully pushed to: https://huggingface.co/datasets/{repo_id}")
+    
+    return dataset_dict
 
 
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description="Create HuggingFace dataset from images")
-    parser.add_argument("image_folder", type=str, help="Path to folder containing images")
-    parser.add_argument("--output", type=str, default=None, help="Path to save the dataset")
+    parser = argparse.ArgumentParser(description="Create HuggingFace dataset from easy and hard image folders")
+    parser.add_argument("easy_folder", type=str, help="Path to folder containing easy images")
+    parser.add_argument("hard_folder", type=str, help="Path to folder containing hard images")
+    parser.add_argument("--output", type=str, default=None, help="Path to save the dataset locally")
+    parser.add_argument("--repo-id", type=str, default=None, help="HuggingFace repository ID (e.g., username/dataset-name)")
+    parser.add_argument("--push-to-hub", action="store_true", help="Push dataset to HuggingFace Hub")
     
     args = parser.parse_args()
     
-    dataset = create_dataset(args.image_folder, args.output)
+    dataset_dict = create_dataset(
+        args.easy_folder, 
+        args.hard_folder, 
+        output_path=args.output,
+        repo_id=args.repo_id,
+        push_to_hub=args.push_to_hub
+    )
     print("\nDataset created successfully!")
-    print(f"Dataset features: {dataset.features}")
+    print(f"Dataset features: {dataset_dict['easy'].features}")
 
