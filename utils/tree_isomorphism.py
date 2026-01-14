@@ -87,11 +87,17 @@ if __name__ == "__main__":
     assert are_trees_isomorphic([], []) == True
     print("✓ Test 4 passed: Empty trees")
     
-    # Test 5: Different number of nodes
+    # Test 5
+    edges1 = [(0, 1), (1, 2) , (2, 3)]
+    edges2 = [(1, 2), (2, 0) , (0, 3)]
+    assert are_trees_isomorphic(edges1, edges2) == True
+    print("✓ Test 5 passed: Same tree with different node order")
+    
+    # Test 6: Different number of nodes
     edges1 = [(0, 1), (0, 2)]
     edges2 = [(0, 1)]
     assert are_trees_isomorphic(edges1, edges2) == False
-    print("✓ Test 5 passed: Different number of nodes")
+    print("✓ Test 6 passed: Different number of nodes")
     
     # Test 6: Single node trees
     edges1 = []
