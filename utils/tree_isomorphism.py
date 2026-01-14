@@ -17,11 +17,11 @@ def are_trees_isomorphic(edges1: List[Tuple[int, int]],
     Two trees are isomorphic if they have the same structure, meaning
     one can be obtained from the other by relabeling nodes.
     
-    Assumes both trees have root at node 0.
+    Edges are treated as undirected (non-directed graphs).
     
     Args:
-        edges1: First tree as list of (parent, child) tuples, with root at 0
-        edges2: Second tree as list of (parent, child) tuples, with root at 0
+        edges1: First tree as list of (u, v) tuples representing edges
+        edges2: Second tree as list of (u, v) tuples representing edges
         
     Returns:
         True if trees are isomorphic, False otherwise
@@ -32,8 +32,8 @@ def are_trees_isomorphic(edges1: List[Tuple[int, int]],
         >>> are_trees_isomorphic(edges1, edges2)
         True
         
-        >>> edges1 = [(0, 1), (0, 2)]
-        >>> edges2 = [(0, 1), (1, 2)]
+        >>> edges1 = [(0, 1), (0, 2), (0, 3)]  # Star graph
+        >>> edges2 = [(0, 1), (1, 2), (2, 3)]  # Path graph
         >>> are_trees_isomorphic(edges1, edges2)
         False
     """
@@ -43,9 +43,9 @@ def are_trees_isomorphic(edges1: List[Tuple[int, int]],
     if not edges1 or not edges2:
         return False
     
-    # Create directed graphs from edge lists
-    G1 = nx.DiGraph(edges1)
-    G2 = nx.DiGraph(edges2)
+    # Create undirected graphs from edge lists
+    G1 = nx.Graph(edges1)
+    G2 = nx.Graph(edges2)
     
     # Check if they have the same number of nodes
     if len(G1.nodes) != len(G2.nodes):
@@ -55,8 +55,8 @@ def are_trees_isomorphic(edges1: List[Tuple[int, int]],
     if len(G1.edges) != len(G2.edges):
         return False
     
-    # Use NetworkX isomorphism checker for directed graphs
-    # For rooted trees, we use is_isomorphic which checks structural isomorphism
+    # Use NetworkX isomorphism checker for undirected graphs
+    # For trees, we use is_isomorphic which checks structural isomorphism
     return nx.is_isomorphic(G1, G2)
 
 
@@ -76,11 +76,12 @@ if __name__ == "__main__":
     assert are_trees_isomorphic(edges1, edges2) == True
     print("✓ Test 2 passed: Isomorphic trees (same structure)")
     
-    # Test 3: Non-isomorphic trees
-    edges1 = [(0, 1), (0, 2)]
-    edges2 = [(0, 1), (1, 2)]
+    # Test 3: Non-isomorphic trees (different structures)
+    # Star graph vs path graph with 4 nodes
+    edges1 = [(0, 1), (0, 2), (0, 3)]  # Star: node 0 connected to 1, 2, 3
+    edges2 = [(0, 1), (1, 2), (2, 3)]  # Path: 0-1-2-3
     assert are_trees_isomorphic(edges1, edges2) == False
-    print("✓ Test 3 passed: Non-isomorphic trees")
+    print("✓ Test 3 passed: Non-isomorphic trees (star vs path)")
     
     # Test 4: Empty trees
     assert are_trees_isomorphic([], []) == True
