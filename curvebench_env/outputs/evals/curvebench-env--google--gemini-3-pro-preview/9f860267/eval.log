@@ -1,0 +1,40 @@
+2026-02-13 17:12:31 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Initializing ZMQEnvServer to serve curvebench-env (env_args={}, extra_env_kwargs={})
+2026-02-13 17:12:31 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Loading environment curvebench-env with env_args={}
+2026-02-13 17:12:31 - verifiers.utils.env_utils - INFO - Loading environment: curvebench-env
+2026-02-13 17:12:31 - verifiers.utils.env_utils - INFO - Using default args: split='total_train'
+2026-02-13 17:12:32 - verifiers.utils.env_utils - INFO - Successfully loaded environment 'curvebench-env'
+2026-02-13 17:12:32 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - ZMQEnvServer started on tcp://127.0.0.1:51445
+2026-02-13 17:13:00 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:02 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:02 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:03 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:31 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:32 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:32 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:33 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:34 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:34 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:13:39 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:00 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:00 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:00 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:00 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:01 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:02 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:02 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:03 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:03 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:06 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:29 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:33 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:39 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:41 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:42 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:43 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:45 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:14:49 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:15:03 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:15:04 - verifiers.envs.environment.SingleTurnEnv - ERROR - Aborted rollout due to EmptyModelResponseError('Model returned no content and did not call any tools')
+2026-02-13 17:15:10 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Received signal SIGTERM, initiating graceful shutdown
+2026-02-13 17:15:10 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Stop event received, shutting down gracefully
+2026-02-13 17:15:10 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Environment server shut down

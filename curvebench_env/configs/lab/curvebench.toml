@@ -1,0 +1,81 @@
+# CurveBench Training Configuration
+# Train a LoRA on hierarchical tree structure extraction from images
+
+# Model configuration
+model = "Qwen/Qwen3-4B-Instruct-2507"
+max_steps = 200
+batch_size = 32
+rollouts_per_example = 8
+env_files = [".env"]  # Load API keys from .env file
+
+# Training hyperparameters (optional overrides)
+# trajectory_strategy = "interleaved"  # or "branching"
+# learning_rate = 1e-4
+# lora_alpha = 16
+# lora_r = 8
+# oversampling_factor = 2.0
+# max_async_level = 2
+
+# Sampling configuration
+[sampling]
+max_tokens = 512  # Allow enough tokens for tree structure output
+
+# Environment configuration
+[[env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "total_train" }  # Use all training data
+
+# Optional: Multi-level training (uncomment to train on specific levels)
+# [[env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_1_train" }  # Easy level
+# 
+# [[env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_2_train" }  # Medium level
+# 
+# [[env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_3_train" }  # Hard level
+
+# Optional: Weights & Biases logging
+[wandb]
+project = "curvebench"
+name = "qwen3-4b-curvebench-lora"
+entity = "rl-research-team"
+
+# Optional: Online evaluation during training
+[eval]
+interval = 50  # Evaluate every 50 steps
+num_examples = 45  # Use full test set
+rollouts_per_example = 1
+eval_base_model = true  # Compare with base model
+
+[[eval.env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "total_test" }
+# Optional: evaluate on each difficulty level
+# [[eval.env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_1_test" }
+# [[eval.env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_2_test" }
+# [[eval.env]]
+# id = "amirmohseni/curvebench-env"
+# args = { split = "level_3_test" }
+
+# Optional: Validation during training
+[val]
+num_examples = 45  # Use full validation set
+rollouts_per_example = 1
+interval = 10  # Validate every 10 steps
+
+# Optional: Buffer configuration for difficulty-based filtering
+# [buffer]
+# easy_threshold = 0.8
+# hard_threshold = 0.2
+# easy_fraction = 0.2  # Include 20% easy examples
+# hard_fraction = 0.3  # Include 30% hard examples
+# online_difficulty_filtering = true
+# seed = 42

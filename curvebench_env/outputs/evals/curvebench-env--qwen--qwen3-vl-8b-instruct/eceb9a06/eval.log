@@ -1,0 +1,11 @@
+2026-02-13 20:36:56 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Initializing ZMQEnvServer to serve curvebench-env (env_args={'split': 'total_test'}, extra_env_kwargs={})
+2026-02-13 20:36:56 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Loading environment curvebench-env with env_args={'split': 'total_test'}
+2026-02-13 20:36:56 - verifiers.utils.env_utils - INFO - Loading environment: curvebench-env
+2026-02-13 20:36:56 - verifiers.utils.env_utils - INFO - Using provided args: split=total_test
+2026-02-13 20:37:09 - verifiers.utils.env_utils - INFO - Successfully loaded environment 'curvebench-env'
+2026-02-13 20:37:09 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - ZMQEnvServer started on tcp://127.0.0.1:53019
+2026-02-13 20:37:31 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Received signal SIGINT, initiating graceful shutdown
+2026-02-13 20:37:31 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Received signal SIGTERM, initiating graceful shutdown
+2026-02-13 20:37:32 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Stop event received, shutting down gracefully
+2026-02-13 20:37:32 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Cancelling 8 pending tasks
+2026-02-13 20:37:32 - verifiers.workers.server.env_server.ZMQEnvServer - INFO - Environment server shut down

@@ -1,0 +1,63 @@
+# CurveBench Progressive Training Configuration
+# Train across all difficulty levels with curriculum learning
+
+model = "Qwen/Qwen3-4B-Instruct-2507"
+max_steps = 300
+batch_size = 32
+rollouts_per_example = 8
+env_files = [".env"]  # Load API keys from .env file
+
+[sampling]
+max_tokens = 512
+
+# Train on all three difficulty levels
+[[env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_1_train" }
+
+[[env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_2_train" }
+
+[[env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_3_train" }
+
+[wandb]
+project = "curvebench"
+name = "qwen3-4b-curvebench-progressive"
+entity = "rl-research-team"
+
+[eval]
+interval = 50
+num_examples = -1  # Use all examples
+rollouts_per_example = 1
+eval_base_model = true
+
+# Evaluate on each level separately
+[[eval.env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_1_test" }
+
+[[eval.env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_2_test" }
+
+[[eval.env]]
+id = "amirmohseni/curvebench-env"
+args = { split = "level_3_test" }
+
+[val]
+num_examples = 45
+rollouts_per_example = 1
+interval = 10
+
+# Focus on hard examples
+[buffer]
+easy_threshold = 0.8
+hard_threshold = 0.2
+easy_fraction = 0.1
+hard_fraction = 0.4
+online_difficulty_filtering = true
+env_ratios = [0.3, 0.3, 0.4]  # More weight on harder levels
+seed = 42

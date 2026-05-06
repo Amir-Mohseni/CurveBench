@@ -1,0 +1,6 @@
+verifiers>=0.1.0
+datasets>=2.14.0
+Pillow>=9.5.0
+networkx>=3.0.0
+
+[dev]
