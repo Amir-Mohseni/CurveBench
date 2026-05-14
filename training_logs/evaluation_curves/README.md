@@ -1,19 +1,15 @@
 # Evaluation Curves
 
-Evaluation accuracy for all CurveBench models across dataset splits and
-categories. All W&B metadata has been removed.
+Evaluation accuracy for the three CurveBench RLVR models across dataset splits
+and categories. All W&B metadata has been removed.
 
 ## Model Key
 
-| Label | Architecture | Reward |
-|---|---|---|
-| model-a | qwen3-vl-8b-tree-only | Tree only |
-| model-b | qwen3-vl-8b-tree-node | Tree + node count |
-| model-c | gemma3-12b-rlvr | Tree + node count |
-| baseline-qwen3-8b | Qwen3-VL-8B-Instruct | zero-shot |
-| baseline-gemma3-12b | Gemma-3-12B-IT | zero-shot |
-| baseline-gemma3-27b | Gemma-3-27B-IT | zero-shot |
-| baseline-qwen3-235b | Qwen3-VL-235B-A22B-Thinking | zero-shot |
+| Label | Architecture | Reward | Color |
+|---|---|---|---|
+| model-a | Qwen3-VL-8B | Tree isomorphism only (weight 1.0) | Blue |
+| model-b | Qwen3-VL-8B | Tree (0.7) + node count (0.3) | Red |
+| model-c | Gemma 3 12B | Tree (0.7) + node count (0.3) | Green |
 
 ## Metric
 
@@ -22,11 +18,8 @@ structurally isomorphic to the ground truth (binary, via NetworkX).
 
 ## Full Evaluation Report
 
-All evaluation panels are included in Section 8 of the LaTeX report:
-
-```
-../Curvebench Training Results.zip  →  Section 8 (Panels 0–46)
-```
+All evaluation panels are included in Section 8 of the LaTeX report at
+`../report.tex` (compile with `pdflatex` or upload to Overleaf).
 
 ## Notes
 

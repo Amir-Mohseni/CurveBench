@@ -23,15 +23,11 @@ All models trained with GRPO on CurveBench-Easy (`total_train`, 210 examples).
 
 ## Full Training Report
 
-The complete W&B LaTeX export (all panels, all runs) is in:
-
-```
-../Curvebench Training Results.zip
-```
-
+The complete W&B LaTeX export (all panels, all runs) is at `../report.tex`.
 Compile with:
+
 ```bash
-pdflatex report.tex
+pdflatex ../report.tex
 ```
 
 Or upload to Overleaf (New Project → Upload Project).
@@ -40,4 +36,3 @@ Or upload to Overleaf (New Project → Upload Project).
 
 - W&B export performed with all user/team/project metadata stripped.
 - Run IDs replaced with model labels above.
-- The LaTeX export uses the `neurips_2019.sty` style file included in the ZIP.
