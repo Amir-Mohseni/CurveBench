@@ -109,7 +109,7 @@ CurveBench/
 │   └── evaluation_curves/       ← Evaluation accuracy charts (PNG)
 ├── curvedata/                   ← Raw image data and annotations
 ├── dataset_levels/              ← Split-level dataset files
-└── anonymous_supplement/        ← Full paper supplement (code, datasets, envs)
+└── supplement/                  ← Full paper supplement (code, datasets, envs)
 ```
 
 ---
@@ -119,7 +119,7 @@ CurveBench/
 | Component | License |
 |---|---|
 | Dataset images and annotations | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| All code | [MIT](anonymous_supplement/LICENSE-CODE.txt) |
+| All code | [MIT](supplement/LICENSE-CODE.txt) |
 
 ---
 

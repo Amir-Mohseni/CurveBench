@@ -1,0 +1,10 @@
+{"split": "level_1_train", "level": 1, "num_nodes": 2, "tree": [[0, 1]], "description": "Single curve: one inner region (node 1) inside the outer background (node 0)"}
+{"split": "level_1_train", "level": 1, "num_nodes": 3, "tree": [[0, 1], [0, 2]], "description": "Two disjoint curves: two sibling inner regions, both children of root"}
+{"split": "level_1_train", "level": 1, "num_nodes": 3, "tree": [[0, 1], [1, 2]], "description": "Two nested curves: one curve inside another (chain of depth 2)"}
+{"split": "level_1_train", "level": 1, "num_nodes": 4, "tree": [[0, 1], [0, 2], [0, 3]], "description": "Three disjoint curves: all three inner regions are direct children of root"}
+{"split": "level_2_train", "level": 2, "num_nodes": 4, "tree": [[0, 1], [1, 2], [1, 3]], "description": "One outer curve with two inner sibling regions nested inside it"}
+{"split": "level_2_train", "level": 2, "num_nodes": 4, "tree": [[0, 1], [0, 2], [2, 3]], "description": "Two outer regions; one contains a nested region"}
+{"split": "level_2_train", "level": 2, "num_nodes": 5, "tree": [[0, 1], [0, 2], [0, 3], [0, 4]], "description": "Four disjoint curves at root level"}
+{"split": "level_2_train", "level": 2, "num_nodes": 5, "tree": [[0, 1], [1, 2], [2, 3], [3, 4]], "description": "Four nested curves forming a chain of depth 4"}
+{"split": "level_3_train", "level": 3, "num_nodes": 5, "tree": [[0, 1], [0, 2], [1, 3], [2, 4]], "description": "Two outer curves each containing one inner region"}
+{"split": "level_3_train", "level": 3, "num_nodes": 6, "tree": [[0, 1], [1, 2], [1, 3], [2, 4], [3, 5]], "description": "Complex branching structure with nesting depth 3"}

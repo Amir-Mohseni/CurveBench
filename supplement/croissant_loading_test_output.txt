@@ -1,0 +1,98 @@
+CurveBench Croissant Loading Test
+Run from: /Users/amirreza/CurveBench/anonymous_supplement/scripts/test_croissant_loading.py
+
+
+============================================================
+Croissant file: CurveBench-Easy
+============================================================
+  @type:       sc:Dataset
+  name:        CurveBench-Easy
+  version:     1.0.0
+  license:     https://creativecommons.org/licenses/by/4.0/
+  url:         https://huggingface.co/datasets/AmirMohseni/CurveBench-Easy
+  datePublished: 2025-01-01
+  creator:     Amir Mohseni
+
+  Distribution objects: 1
+    - huggingface-parquet-easy (application/x-parquet)
+
+  RecordSets: 2
+    RecordSet 'easy-examples':
+      Fields:      3
+        field 'image': sc:ImageObject
+        field 'num_nodes': sc:Integer
+        field 'tree': sc:Text
+    RecordSet 'splits':
+      Fields:      4
+      Inline rows: 12
+        field 'split_name': sc:Text
+        field 'level': sc:Integer
+        field 'subset': sc:Text
+        field 'size': sc:Integer
+
+  Metadata completeness check for CurveBench-Easy:
+    [PASS] All required core + minimal RAI fields are present.
+
+  Sample records from sample_records.jsonl:
+    First sample keys: ['split', 'level', 'num_nodes', 'tree', 'description']
+    split:     level_1_train
+    num_nodes: 2
+    tree:      [[0, 1]]
+    category/level: 1
+    [PASS] Sample record loaded successfully.
+
+  mlcroissant validation for curvebench-easy-croissant.json:
+    [PASS] mlcroissant loaded dataset successfully.
+    Record sets found: 2
+      - easy-examples
+      - splits
+
+============================================================
+Croissant file: CurveBench (Hard)
+============================================================
+  @type:       sc:Dataset
+  name:        CurveBench
+  version:     1.0.0
+  license:     https://creativecommons.org/licenses/by/4.0/
+  url:         https://huggingface.co/datasets/AmirMohseni/CurveBench
+  datePublished: 2025-01-01
+  creator:     Amir Mohseni
+
+  Distribution objects: 1
+    - huggingface-parquet-hard (application/x-parquet)
+
+  RecordSets: 2
+    RecordSet 'hard-examples':
+      Fields:      5
+        field 'image': sc:ImageObject
+        field 'category': sc:Text
+        field 'filename': sc:Text
+        field 'num_nodes': sc:Integer
+        field 'tree': sc:Text
+    RecordSet 'category-splits':
+      Fields:      3
+      Inline rows: 5
+        field 'split_name': sc:Text
+        field 'category': sc:Text
+        field 'size': sc:Integer
+
+  Metadata completeness check for CurveBench (Hard):
+    [PASS] All required core + minimal RAI fields are present.
+
+  Sample records from sample_records.jsonl:
+    First sample keys: ['split', 'category', 'filename', 'num_nodes', 'tree', 'description']
+    split:     polygon
+    num_nodes: 3
+    tree:      [(0, 1), (0, 2)]
+    category/level: Polygon
+    [PASS] Sample record loaded successfully.
+
+  mlcroissant validation for curvebench-croissant.json:
+    [PASS] mlcroissant loaded dataset successfully.
+    Record sets found: 2
+      - hard-examples
+      - category-splits
+
+============================================================
+Test complete.
+============================================================

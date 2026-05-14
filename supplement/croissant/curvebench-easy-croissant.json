@@ -1,0 +1,212 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "cr": "http://mlcommons.org/croissant/",
+    "isArray": "cr:isArray",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "wasDerivedFrom": "prov:wasDerivedFrom",
+    "wasGeneratedBy": "prov:wasGeneratedBy",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "CurveBench-Easy",
+  "description": "CurveBench-Easy is the foundational split of the CurveBench benchmark. It contains 300 hand-drawn images of disjoint curves, each paired with a rooted-tree annotation encoding the nested containment relationships between regions. The Easy split covers all rooted-tree topologies with up to 6 nodes, with at least 2 visually distinct representations per topology. It is divided into three difficulty levels based on the number of curves in each image.",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "citeAs": "@misc{mohseni2026curvebench,\n  title        = {CurveBench: A Benchmark for Topological Reasoning in Vision-Language Models},\n  author       = {Mohseni, Amir},\n  year         = {2026},\n  publisher    = {Hugging Face},\n  howpublished = {\\url{https://huggingface.co/collections/AmirMohseni/curvebench}}\n}",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://huggingface.co/datasets/AmirMohseni/CurveBench-Easy",
+  "version": "1.0.0",
+  "datePublished": "2025-01-01",
+  "keywords": [
+    "topology",
+    "rooted-tree",
+    "visual reasoning",
+    "multimodal benchmark",
+    "vision-language models",
+    "containment",
+    "spatial reasoning",
+    "RLVR",
+    "verifiable rewards"
+  ],
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Amir Mohseni",
+    "email": "amir.mohseni@student.maastrichtuniversity.nl",
+    "affiliation": {
+      "@type": "sc:Organization",
+      "name": "Maastricht University"
+    }
+  },
+  "isAccessibleForFree": true,
+  "rai:dataCollection": "Images were manually hand-drawn by the research team. All rooted-tree topologies with up to 6 nodes were enumerated and at least 2 visually distinct renderings per topology were produced. Difficulty levels correspond to increasing numbers of curves per image.",
+  "rai:dataAnnotationProtocol": "Ground-truth rooted trees were generated using an automated OpenCV contour-based extraction pipeline that traces boundary curves and assembles parent-child containment relationships.",
+  "rai:dataAnnotationAnalysis": "Every annotation was individually human-verified to confirm structural correctness, catch missed or merged regions, and remove images with ambiguous contours.",
+  "rai:personalSensitiveInformation": "The dataset does not contain personal data, faces, biometric information, private text, or human-subject records. All images are synthetic hand-drawn diagrams.",
+  "rai:dataBiases": "Hand-authored examples reflect the drawing styles and visual conventions of the annotators. The topological coverage is exhaustive for up to 6 nodes, but visual diversity per topology is limited.",
+  "rai:dataLimitations": "The dataset evaluates rooted region-containment topology only. It does not measure metric geometry, 3D structure, temporal dynamics, or real-world semantic understanding.",
+  "rai:dataUseCases": "Research evaluation of visual topological reasoning and verifiable RLVR training for vision-language models.",
+  "rai:dataSocialImpact": "Methods trained on this dataset could contribute to automated map vectorization or geospatial analysis systems. Researchers should be aware of potential surveillance or military downstream applications.",
+  "rai:hasSyntheticData": true,
+  "prov:wasDerivedFrom": [],
+  "prov:wasGeneratedBy": "Data collection: Images were manually hand-drawn by the research team between 2024-09 and 2025-01 using digital drawing software (no real-world or third-party imagery). Coverage was driven by combinatorial enumeration of all rooted-tree topologies with up to 6 nodes, with at least 2 visually distinct renderings per topology. Preprocessing: Each PNG/JPEG was kept at native author resolution; no augmentation, filtering, or resizing was applied beyond white-background normalisation. Data annotation: Ground-truth rooted trees were produced by an automated OpenCV contour-based extraction pipeline that traces boundary curves and assembles parent-child containment relationships, encoded as edge lists [[parent, child], ...] with node 0 fixed as the outermost (background) region. Quality control: Every annotation was independently human-verified by the same research team to confirm structural correctness; ambiguous or noisy contours were either corrected or removed (no formal multi-annotator agreement score was computed because annotation was algorithmic and verified, not crowd-sourced). Tools and platforms used: digital drawing software for image creation, OpenCV (Python) for contour extraction, NetworkX for tree validation, and Hugging Face Datasets for hosting and distribution.",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "repo",
+      "name": "repo",
+      "description": "The CurveBench-Easy Hugging Face git repository. The sha256 field is the canonical Croissant placeholder for git-backed repositories per https://github.com/mlcommons/croissant/issues/80, since a git tree does not have a single content hash.",
+      "contentUrl": "https://huggingface.co/datasets/AmirMohseni/CurveBench-Easy/tree/refs%2Fconvert%2Fparquet",
+      "encodingFormat": "git+https",
+      "sha256": "https://github.com/mlcommons/croissant/issues/80"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parquet-files-for-config-default",
+      "name": "parquet-files-for-config-default",
+      "description": "Auto-converted Parquet files for the default config of CurveBench-Easy on the refs/convert/parquet ref. One file per split.",
+      "containedIn": { "@id": "repo" },
+      "encodingFormat": "application/x-parquet",
+      "includes": "default/*/*.parquet"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "easy-examples",
+      "name": "easy-examples",
+      "description": "All 300 CurveBench-Easy examples with image, node count, and rooted-tree edge list.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "easy-examples/image",
+          "name": "image",
+          "description": "Hand-drawn PNG or JPEG image showing disjoint closed curves representing nested regions. The outermost (background) region is node 0.",
+          "dataType": "sc:ImageObject",
+          "source": {
+            "fileSet": { "@id": "parquet-files-for-config-default" },
+            "extract": { "column": "image" },
+            "transform": { "jsonPath": "bytes" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "easy-examples/num_nodes",
+          "name": "num_nodes",
+          "description": "Total number of nodes in the rooted tree, including the implicit root (node 0 = outermost/background region). Equals the number of closed regions plus one.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileSet": { "@id": "parquet-files-for-config-default" },
+            "extract": { "column": "num_nodes" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "easy-examples/tree",
+          "name": "tree",
+          "description": "Edge list of the rooted tree as an array of [parent, child] integer pairs. 0-indexed; node 0 is always the outermost (background) region. Example: [[0,1],[1,2]] means region 1 is inside region 0, and region 2 is inside region 1.",
+          "dataType": "cr:Int64",
+          "isArray": true,
+          "arrayShape": "-1,-1",
+          "source": {
+            "fileSet": { "@id": "parquet-files-for-config-default" },
+            "extract": { "column": "tree" }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "splits",
+      "name": "splits",
+      "description": "Split definitions for CurveBench-Easy across 3 difficulty levels (level_1, level_2, level_3) and train/validation/test subsets.",
+      "data": [
+        { "splits/split_name": "level_1_train",      "splits/level": 1, "splits/subset": "train",      "splits/size": 84  },
+        { "splits/split_name": "level_1_validation", "splits/level": 1, "splits/subset": "validation", "splits/size": 18  },
+        { "splits/split_name": "level_1_test",       "splits/level": 1, "splits/subset": "test",       "splits/size": 18  },
+        { "splits/split_name": "level_2_train",      "splits/level": 2, "splits/subset": "train",      "splits/size": 78  },
+        { "splits/split_name": "level_2_validation", "splits/level": 2, "splits/subset": "validation", "splits/size": 16  },
+        { "splits/split_name": "level_2_test",       "splits/level": 2, "splits/subset": "test",       "splits/size": 18  },
+        { "splits/split_name": "level_3_train",      "splits/level": 3, "splits/subset": "train",      "splits/size": 47  },
+        { "splits/split_name": "level_3_validation", "splits/level": 3, "splits/subset": "validation", "splits/size": 10  },
+        { "splits/split_name": "level_3_test",       "splits/level": 3, "splits/subset": "test",       "splits/size": 11  },
+        { "splits/split_name": "total_train",        "splits/level": 0, "splits/subset": "train",      "splits/size": 210 },
+        { "splits/split_name": "total_validation",   "splits/level": 0, "splits/subset": "validation", "splits/size": 45  },
+        { "splits/split_name": "total_test",         "splits/level": 0, "splits/subset": "test",       "splits/size": 45  }
+      ],
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "splits/split_name",
+          "name": "split_name",
+          "description": "HuggingFace split name (e.g. 'total_train', 'level_1_test')",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "splits/level",
+          "name": "level",
+          "description": "Difficulty level (1=fewest curves, 3=most complex). 0 for 'total_*' splits.",
+          "dataType": "sc:Integer"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "splits/subset",
+          "name": "subset",
+          "description": "Data subset: 'train', 'validation', or 'test'.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "splits/size",
+          "name": "size",
+          "description": "Number of examples in this split.",
+          "dataType": "sc:Integer"
+        }
+      ]
+    }
+  ]
+}
