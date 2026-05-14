@@ -1,10 +1,17 @@
 # Exclude virtual environments
 .venv/
 venv/
+.venv/
+*/venv/
+*/.venv/
 __pycache__/
 
 .env
+**/.env
 
+# Exclude environment directories
+curvebench_env/
+curvebench_hard_env/
 
 # exclude easy and hard folders
 easy/
