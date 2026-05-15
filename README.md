@@ -138,10 +138,3 @@ If you use CurveBench in your research, please cite:
       url={https://arxiv.org/abs/2605.14068},
 }
 ```
-
----
-
-## Contact
-
-- Author: Amir Mohseni — `amir.mohseni@student.maastrichtuniversity.nl`
-- Hugging Face: <https://huggingface.co/AmirMohseni>
