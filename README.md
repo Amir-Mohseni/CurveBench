@@ -125,7 +125,19 @@ CurveBench/
 
 ## Citation
 
-<!-- Citation will be added once the arXiv link and full author list are available. -->
+If you use CurveBench in your research, please cite:
+
+```bibtex
+@misc{mohseni2026curvebench,
+      title={CurveBench: A Benchmark for Exact Topological Reasoning over Nested Jordan Curves},
+      author={Amirreza Mohseni and Mona Mohammadi and Morteza Saghafian and Naser Talebizadeh Sardari},
+      year={2026},
+      eprint={2605.14068},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.14068},
+}
+```
 
 ---
 
