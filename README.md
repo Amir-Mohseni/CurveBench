@@ -30,11 +30,11 @@ ds_hard = load_dataset("AmirMohseni/CurveBench", split="combined")
 
 We train three models with GRPO on CurveBench-Easy using two verifiable binary rewards:
 
-| Model | Architecture | Reward | Weights |
-|---|---|---|---|
-| model-a | Qwen3-VL-8B | Tree isomorphism only (weight 1.0) | [curvebench-qwen3-vl-8b-only-tree](https://huggingface.co/AmirMohseni/curvebench-qwen3-vl-8b-only-tree) |
-| model-b | Qwen3-VL-8B | Tree (0.7) + node count (0.3) | [curvebench-qwen3-vl-8b](https://huggingface.co/AmirMohseni/curvebench-qwen3-vl-8b) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qOn6cBZGpEYZnItTdJA0ATQsn9kp4O3f?usp=sharing) |
-| model-c | Gemma 3 12B | Tree (0.7) + node count (0.3) | [curvebench-gemma-3-12b](https://huggingface.co/AmirMohseni/curvebench-gemma-3-12b) |
+| Model | Base Model | Reward |
+|---|---|---|
+| [curvebench-qwen3-vl-8b-only-tree](https://huggingface.co/AmirMohseni/curvebench-qwen3-vl-8b-only-tree) | Qwen/Qwen3-VL-8B-Thinking | Tree isomorphism only (weight 1.0) |
+| [curvebench-qwen3-vl-8b](https://huggingface.co/AmirMohseni/curvebench-qwen3-vl-8b) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qOn6cBZGpEYZnItTdJA0ATQsn9kp4O3f?usp=sharing) | Qwen/Qwen3-VL-8B-Thinking | Tree (0.7) + node count (0.3) |
+| [curvebench-gemma-3-12b](https://huggingface.co/AmirMohseni/curvebench-gemma-3-12b) | google/gemma-3-12b-it | Tree (0.7) + node count (0.3) |
 
 Training is built on a fork of the TRL library with multimodal GRPO support:
 <https://github.com/AmirTuring/trl/tree/curvebench>
