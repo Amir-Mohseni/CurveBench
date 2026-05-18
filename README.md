@@ -73,14 +73,30 @@ The training configs live in `trl/examples/cli_configs/`. The reward functions a
 
 ## Evaluation
 
-The evaluation environments are self-contained Python packages that score model outputs using tree isomorphism (via NetworkX).
+The evaluation environments are also hosted on Prime Intellect Environments Hub — no local setup required:
+
+| Environment | Split | Prime Intellect |
+|---|---|---|
+| CurveBench-Easy | `total_test`, `level_1_test`, `level_2_test`, `level_3_test` | [amirmohseni/curvebench-env](https://app.primeintellect.ai/dashboard/environments/amirmohseni/curvebench-env) |
+| CurveBench-Hard | `combined`, `polygon`, `topographical`, `maze`, `counting` | [amirmohseni/curvebench-hard-env](https://app.primeintellect.ai/dashboard/environments/amirmohseni/curvebench-hard-env) |
 
 ```bash
-pip install -r curvebench_env/requirements.txt
-python curvebench_env/curvebench_env.py --split total_test
+# Evaluate any model on CurveBench-Easy
+prime eval run amirmohseni/curvebench-env \
+  -m "your-model-name" \
+  -n -1 \
+  -a '{"split": "total_test"}' \
+  -r 4
+
+# Evaluate any model on CurveBench-Hard
+prime eval run amirmohseni/curvebench-hard-env \
+  -m "your-model-name" \
+  -n -1 \
+  -a '{"split": "combined"}' \
+  -r 4
 ```
 
-See [`curvebench_env/README.md`](curvebench_env/README.md) for full usage details, including multi-GPU batch evaluation and the expected response format.
+For local evaluation, the environments are self-contained Python packages in [`curvebench_env/`](curvebench_env/README.md) and [`curvebench_hard_env/`](curvebench_hard_env/README.md).
 
 ---
 
